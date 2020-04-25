@@ -118,11 +118,17 @@ function compile(modules) {
 		.pipe(gulp.dest(modules === false ? esDir : libDir));
 
 	const assets = gulp
-		.src(['./src/components/**/*.(png|svg)'])
+		.src(['./src/assets/**/*.(png|svg)'])
 		.pipe(gulp.dest(modules === false ? esDir : libDir));
 
 	let error = 0;
-	const source = ['./src/components/**/*.tsx', './src/components/**/*.ts'];
+	const source = [
+		'./src/components/**/*.tsx',
+		'./src/components/**/*.ts', './src/*',
+		'./src/utils/*.ts',
+		'./src/constants/*.ts',
+		'./src/index.ts'
+	];
 
 	if (tsConfig.allowJs) {
 		source.push('./src/components/**/*.jsx');
