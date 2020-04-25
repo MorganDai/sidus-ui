@@ -1,0 +1,31 @@
+@import "../../styles/color/color";
+
+.sidus-{
+  &popup {
+    &_box:not(.no-content) {
+      margin: 110px auto 0 auto;
+      width: 960px;
+      overflow: hidden;
+    }
+
+    &_box {
+      &.no-content {
+        .sidus-popup_content {
+          padding: 0;
+        }
+      }
+    }
+
+    &_title {
+      line-height: 60px;
+      background: $COLOR_FA;
+      color: $COLOR_40;
+      font-size: 16px;
+    }
+    
+    &_content {
+      position: relative;
+      padding: 50px 60px;
+    }
+  }
+}

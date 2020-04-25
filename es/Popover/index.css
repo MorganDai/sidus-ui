@@ -1,0 +1,18 @@
+.sidus-popover_wrapper {
+  font-size: 0; }
+
+.sidus-popover-box_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden; }
+  .sidus-popover-box_wrapper.visible {
+    visibility: visible; }
+
+.sidus-popover-box_context {
+  position: absolute;
+  z-index: 1030;
+  user-select: text; }
+
+.sidus-popover_trigger {
+  display: inline-flex; }

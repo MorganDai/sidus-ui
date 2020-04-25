@@ -1,0 +1,14 @@
+.sidus-collapse {
+
+    &_wrapper {
+        overflow: hidden;
+    }
+
+    &_box {
+        transition: height .5s ease-in-out;
+
+        &.collapsed {
+            height: 0;
+        }
+    }
+}

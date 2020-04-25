@@ -1,0 +1,104 @@
+@import "../../styles/color/color";
+@import "../../styles/mixins/border";
+
+.sidus-input_ {
+    &wrapper {
+        text-align: center;
+
+        &.required {
+            .sidus-input_label {
+                &::before {
+                    content: "* ";
+                    color: $COLOR_REQUIRE_RED;
+                }
+            }
+        }
+
+        &.align-horizontal {
+            display: flex;
+            justify-content: flex-start;
+
+            .sidus-input_box  {
+                margin-left: 20px;
+                flex: 1;
+            }
+        }
+
+        .sidus-input_box {
+            @include bd($COLOR_D2, 80px, .5px);
+            &::after {
+                transition: all .5s;
+            }
+        }
+
+        input {
+            position: relative;
+            z-index: 5;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 0 20px;
+            line-height: 40px;
+            height: 40px;
+            border-radius: 40px;
+            max-width: 100%;
+            background: transparent;
+            //border: 1px solid $COLOR_D2;
+
+            &.search {
+                padding-left: 37px;
+                background-image: url("../../assets/images/product_search_searchbox.svg");
+                background-repeat: no-repeat;
+                background-size: 15px 15px;
+                background-position: 13px 13px;
+                background-color: $COLOR_F2;
+            }
+        }
+
+        //input,
+        //.sidus-input_verify{
+        //}
+    }
+
+    &label {
+        text-align-last: left;
+        font-size: 14px;
+        padding: 10px 0;
+        color: $COLOR_40;
+        font-weight: bold;
+    }
+
+    &box {
+        position: relative;
+        width: 100%;
+        line-height: 40px;
+        height: 40px;
+    }
+
+    &verify {
+        position: absolute!important;
+        right: 20px;
+        top: 0;
+        z-index: 5;
+        font-size: 12px;
+        line-height: 40px;
+        // border: 1px solid $COLOR_D2;
+        // border-left: none;
+        color: $COLOR_666;
+        // border-radius: 0 40px 40px 0;
+        cursor: pointer;
+        transition: color .5s;
+        //@include bd($COLOR_D2, 80px, .5px);
+
+        &::after {
+            border-left: none;
+        }
+
+        &:hover {
+            color: $COLOR_INK_GREEN;
+        }
+
+        &.disabled {
+            color: $COLOR_D2;
+        }
+    }
+}

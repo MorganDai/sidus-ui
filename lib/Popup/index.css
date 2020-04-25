@@ -1,0 +1,17 @@
+.sidus-popup_box:not(.no-content) {
+  margin: 110px auto 0 auto;
+  width: 960px;
+  overflow: hidden; }
+
+.sidus-popup_box.no-content .sidus-popup_content {
+  padding: 0; }
+
+.sidus-popup_title {
+  line-height: 60px;
+  background: #fafafa;
+  color: #404040;
+  font-size: 16px; }
+
+.sidus-popup_content {
+  position: relative;
+  padding: 50px 60px; }

@@ -1,0 +1,67 @@
+@import "../../styles/color/color.scss";
+@import "../../styles/mixins/border.scss";
+
+.sidus-{
+    &select{
+        display: flex;
+        position: relative;
+        align-items: center;
+        height: 100%;
+        background: #fff;
+        z-index: 5;
+
+        &_wrapper {
+            width: 200px;
+            height: 40px;
+        }
+        
+        &_box {
+            position: relative;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        &_placeholder {
+            position: relative;
+            flex: 1;
+            padding-left: 10px;
+            color: $COLOR_D8;
+            z-index: 5;
+
+            &.selected {
+                color: $COLOR_666;
+            }
+        }
+
+        &_list {
+            position: absolute;
+            left: 1px;
+            top: 100%;
+            width: calc(100% - 2px);
+            padding: 10px 0;
+            line-height: 40px;
+            transform: translateY(-1px);
+            background: #fff;
+            visibility: hidden;
+            font-size: 14px;
+            color: $COLOR_666;
+            text-align: center;
+            box-shadow: 0 0 1px 0 rgb(210,210,210);
+
+            &.no-collapse{
+                visibility: visible;
+            }
+
+            li {
+                &:hover,
+                &.active {
+                    color: $COLOR_INK_GREEN;
+                }
+            }
+        }
+    }
+
+    &select {
+        @include bd($COLOR_D8, 6px, .5px);
+    }
+}

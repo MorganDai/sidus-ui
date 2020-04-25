@@ -1,0 +1,83 @@
+.common-icon, .sidus-icon_box span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat; }
+
+.sidus-icon {
+  cursor: pointer;
+  transition: all .5s ease-in-out; }
+  .sidus-icon.hide {
+    visibility: hidden; }
+  .sidus-icon_box {
+    display: inline-flex;
+    font-size: 0; }
+    .sidus-icon_box span {
+      display: inline-block;
+      width: 30px;
+      height: 30px; }
+      .sidus-icon_box span.small {
+        width: 20px;
+        height: 20px; }
+      .sidus-icon_box span.large {
+        width: 40px;
+        height: 40px; }
+
+.sidus-icon_choose {
+  background-image: url("../../assets/images/login_choose_n@2x.png"); }
+
+.sidus-icon_unchoose {
+  background-image: url("../../assets/images/login_unchoose_n@2x.png"); }
+
+.sidus-icon_dropdown {
+  background-image: url("../../assets/images/login_pulldown@2x.png"); }
+
+.sidus-icon_right_arrow {
+  background-image: url("../../assets/images/login_pulldown@2x.png");
+  transform: rotate(-90deg);
+  transform-origin: center; }
+
+.sidus-icon_rank {
+  background-image: url("../../assets/images/navigation_rank_n@2x.png"); }
+  .sidus-icon_rank:hover:not(.stop-hover) {
+    background-image: url("../../assets/images/navigation_rank_p@2x.png"); }
+
+.sidus-icon_add {
+  background-image: url("../../assets/images/navigation_add_n@2x.png"); }
+  .sidus-icon_add:hover:not(.stop-hover) {
+    background-image: url("../../assets/images/navigation_add_p@2x.png"); }
+
+.sidus-icon_add-fill {
+  background-image: url("../../assets/images/manage_add_n.svg"); }
+  .sidus-icon_add-fill:hover:not(.stop-hover) {
+    background-image: url("../../assets/images/manage_add_p.svg"); }
+
+.sidus-icon_search {
+  background-image: url("../../assets/images/navigation_search_n@2x.png"); }
+  .sidus-icon_search:hover:not(.stop-hover) {
+    background-image: url("../../assets/images/navigation_search_p@2x.png"); }
+
+.sidus-icon_edit {
+  background-image: url("../../assets/images/edit.png"); }
+  .sidus-icon_edit:hover:not(.stop-hover) {
+    background-image: url("../../assets/images/edit_on.png"); }
+
+.sidus-icon_close {
+  background-image: url("../../assets/images/product_participant_close_n.svg"); }
+  .sidus-icon_close:hover:not(.stop-hover) {
+    background-image: url("../../assets/images/product_participant_close_p.svg"); }
+
+.sidus-icon_circle-close {
+  background-image: url("../../assets/images/product_search_close_n.svg"); }
+  .sidus-icon_circle-close:hover:not(.stop-hover) {
+    background-image: url("../../assets/images/product_search_close_p.svg"); }
+
+.sidus-icon_delete {
+  background-image: url("../../assets/images/manage_participant_delete.svg"); }
+
+.sidus-icon_trash {
+  background-image: url("../../assets/images/manage_participant_trash_n.svg"); }
+  .sidus-icon_trash:hover:not(.stop-hover) {
+    background-image: url("../../assets/images/manage_participant_trash_p.svg"); }

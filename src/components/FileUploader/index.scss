@@ -1,0 +1,86 @@
+@import "../../styles/mixins/border";
+@import "../../styles/color/color";
+
+.sidus- {
+  &file-uploader {
+    &_wrapper {
+      display: inline-flex;
+    }
+
+    &_area{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    &_finished {
+      display: inline-block;
+      width: 157px;
+      font-size: 10px;
+      padding: 13px 25px 13px 24px;
+      text-align: center;
+      visibility: hidden;
+      background: $COLOR_INK_GREEN;
+      word-wrap: break-word;
+      color: #fff;
+      border-radius: 6px;
+
+      &.uploaded {
+        visibility: visible;
+      }
+    }
+
+    &_area {
+      &.uploaded {
+        visibility: hidden;
+      }
+    }
+
+    &_add {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+
+      &::before,
+      &::after{
+        position: absolute;
+        content: "";
+        width: 10px;
+        height: 2px;
+        background: $COLOR_D2;
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+      &::after {
+        transform: rotate(90deg);
+      }
+    }
+
+    &_label {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      color: $COLOR_D2;
+
+      &.uploaded {
+        visibility: hidden;
+      }
+    }
+
+    &_box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 330px;
+      height: 220px;
+      @include bd($COLOR_666, 10px);
+    }
+  }
+}

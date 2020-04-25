@@ -1,0 +1,9 @@
+.sidus-checkbox_wrapper.horizontal {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+  .sidus-checkbox_wrapper.horizontal .sidus-checkbox_content {
+    flex: 1; }
+
+.sidus-checkbox_wrapper.disabled .sidus-checkbox_icon .sidus-icon {
+  cursor: not-allowed !important; }

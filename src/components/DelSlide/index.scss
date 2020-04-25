@@ -1,0 +1,53 @@
+.sidus- {
+  &del-slide {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 80px;
+    transition: all ease-out .5s;
+    background-color: #fff;
+    z-index: 5;
+
+    &_box {
+      position: relative;
+      overflow: hidden;
+
+      &.open {
+        .sidus-del-slide {
+          transform: translateX(-80px);
+        }
+      }
+
+      &.deleted {
+        .sidus-del-slide {
+          height: 0;
+        }
+      }
+    }
+
+    &_trash {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 80px;
+      height: 80px;
+      background-image: url("../../assets/images/manage_participant_trash_n.svg");
+      transition: background .5s;
+      cursor: pointer;
+      z-index: 2;
+
+      &:hover {
+        background-image: url("../../assets/images/manage_participant_trash_p.svg");
+      }
+    }
+
+    .sidus-icon_box {
+      margin-right: 20px;
+    }
+
+    &_content {
+      flex: 1;
+    }
+  }
+}

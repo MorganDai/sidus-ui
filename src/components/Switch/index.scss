@@ -1,0 +1,35 @@
+@import "../../styles/color/color";
+
+.sidus-switch {
+  position: relative;
+  width: 28px;
+
+  &_wrapper {
+    display: inline-flex;
+    padding: 2px;
+    height: 20px;
+    background: $COLOR_D2;
+    border-radius: 10px;
+    transition: background-color .5s;
+    cursor: pointer;
+
+    &.active {
+      background: $COLOR_INK_GREEN;
+
+      .sidus-switch_inner {
+        left: 12px;
+      }
+    }
+  }
+
+  &_inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: left .5s ease-in-out;
+  }
+}

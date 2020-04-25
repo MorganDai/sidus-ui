@@ -1,0 +1,55 @@
+@import "./core/base.scss";
+@import "./reset.scss";
+@import "./color/color.scss";
+
+.bg-common {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.bg-fff {
+    background: #fff;
+}
+
+// font
+/*  font-size   */
+.fz-0 {
+    font-size: 0;
+}
+
+// display
+.dis-ib {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.flex_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-verti_center {
+    display: flex;
+    align-items: center;
+}
+
+// border
+/*  border-radius   */
+.bdr-px-6 {
+    border-radius: 6px;
+}
+
+.bdr-px-10 {
+    border-radius: 10px;
+}
+
+.bdr-percent-half {
+    border-radius: 50%;
+}
+
+// text
+.text-center {
+    text-align: center;
+}

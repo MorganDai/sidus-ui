@@ -1,0 +1,119 @@
+@import "../../styles/mixins/icon.scss";
+
+.sidus- {
+  &icon {
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+
+    &.hide {
+      visibility: hidden;
+    }
+
+    &_box {
+      display: inline-flex;
+      font-size: 0;
+      span {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        @extend .common-icon;
+
+        &.small {
+          width: 20px;
+          height: 20px;
+        }
+
+        &.large {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+    }
+  }
+
+  &icon_ {
+
+    &choose {
+      background-image: url("../../assets/images/login_choose_n@2x.png");
+    }
+
+    &unchoose {
+      background-image: url("../../assets/images/login_unchoose_n@2x.png");
+    }
+
+    &dropdown {
+      background-image: url("../../assets/images/login_pulldown@2x.png");
+    }
+
+    &right_arrow {
+      background-image: url("../../assets/images/login_pulldown@2x.png");
+      transform: rotate(-90deg);
+      transform-origin: center;
+    }
+
+    &rank {
+      background-image: url("../../assets/images/navigation_rank_n@2x.png");
+      &:hover:not(.stop-hover) {
+        background-image: url("../../assets/images/navigation_rank_p@2x.png");
+      }
+    }
+
+    &add {
+      background-image: url("../../assets/images/navigation_add_n@2x.png");
+
+      &:hover:not(.stop-hover) {
+        background-image: url("../../assets/images/navigation_add_p@2x.png");
+      }
+    }
+
+    &add-fill {
+      background-image: url("../../assets/images/manage_add_n.svg");
+      &:hover:not(.stop-hover) {
+        background-image: url("../../assets/images/manage_add_p.svg");
+      }
+    }
+
+    &search {
+      background-image: url("../../assets/images/navigation_search_n@2x.png");
+      &:hover:not(.stop-hover) {
+        background-image: url("../../assets/images/navigation_search_p@2x.png");
+      }
+    }
+
+    &edit {
+      background-image: url("../../assets/images/edit.png");
+
+      &:hover:not(.stop-hover) {
+        background-image: url("../../assets/images/edit_on.png");
+      }
+    }
+
+    &close {
+      background-image: url("../../assets/images/product_participant_close_n.svg");
+
+      &:hover:not(.stop-hover) {
+        background-image: url("../../assets/images/product_participant_close_p.svg");
+      }
+    }
+
+    &circle-close {
+      background-image: url("../../assets/images/product_search_close_n.svg");
+
+      &:hover:not(.stop-hover) {
+        background-image: url("../../assets/images/product_search_close_p.svg");
+      }
+    }
+
+    &delete {
+      background-image: url("../../assets/images/manage_participant_delete.svg");
+    }
+
+    &trash {
+      background-image: url("../../assets/images/manage_participant_trash_n.svg");
+      &:hover:not(.stop-hover) {
+        background-image: url("../../assets/images/manage_participant_trash_p.svg");
+      }
+    }
+  }
+}

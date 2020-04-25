@@ -1,0 +1,1 @@
+import './SubMenu.modules.scss';

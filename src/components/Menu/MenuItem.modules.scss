@@ -1,0 +1,31 @@
+@import "../../styles/color/color.scss";
+
+.sidus {
+    &- {
+        &menuitem {
+            position: relative;
+            font-size: 12px;
+            color: $COLOR_999;
+            padding-left: 20px;
+            height: 50px;
+            line-height: 50px;
+            cursor: pointer;
+
+            &.active,
+            &:hover {
+                background-color: #fafafa;
+                color: $COLOR_666;
+
+                &::before {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    content: "";
+                    width: 2px;
+                    height: 100%;
+                    background-color: $COLOR_INK_GREEN;
+                }
+            }
+        }
+    }
+}

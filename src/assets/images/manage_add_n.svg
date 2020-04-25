@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>manage_add_n</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="管理端-用户与部门图标" transform="translate(-217.000000, -95.000000)">
+            <g id="manage_add_n" transform="translate(217.000000, 95.000000)">
+                <circle id="椭圆形" fill="#46AA5F" cx="20" cy="20" r="20"></circle>
+                <g id="编组-2" transform="translate(13.476450, 13.504736)" fill="#FFFFFF">
+                    <rect id="矩形" x="0" y="5" width="13" height="3" rx="1.5"></rect>
+                    <rect id="矩形备份-2" transform="translate(6.500000, 6.500000) rotate(-270.000000) translate(-6.500000, -6.500000) " x="0" y="5" width="13" height="3" rx="1.5"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

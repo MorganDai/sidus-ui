@@ -1,0 +1,13 @@
+.sidus-menu_wrapper {
+  padding: 10px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff; }
+
+.sidus-menu_title {
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  padding-left: 20px;
+  color: #404040;
+  font-weight: 700; }

@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'SidusLinkCGeos';
+  font-display: swap;
+  src: url('../assets/fonts/SidusLinkCGeos-Medium.otf'); /* IE9*/
+  src: url('../assets/fonts/SidusLinkCGeos-Medium.otf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../assets/fonts/SidusLinkCGeos-Medium.otf') format('woff2'),
+  url('../assets/fonts/SidusLinkCGeos-Medium.otf') format('woff'), /* chrome、firefox */
+  url('../assets/fonts/SidusLinkCGeos-Medium.otf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+}
+
+

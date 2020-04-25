@@ -1,0 +1,63 @@
+@import "../../styles/color/color.scss";
+
+.sidus- {
+  &submenu,
+  &item-group {
+    &_wrapper {
+
+    }
+
+    &_title {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: $COLOR_40;
+      font-size: 14px;
+      line-height: 60px;
+      padding-left: 20px;
+
+      &.active:not(.sidus-item-group),
+      &:hover:not(.sidus-item-group) {
+        background-color: #fafafa;
+
+        &::before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          content: "";
+          width: 2px;
+          height: 100%;
+          background-color: $COLOR_INK_GREEN;
+        }
+      }
+    }
+
+    &_box {
+      overflow: hidden;
+      transition: all .5s ease-in-out;
+
+      .sidus-submenu_wrapper {
+        .sidus-submenu_title {
+          padding-left: 40px;
+          font-size: 12px;
+          color: $COLOR_999;
+        }
+
+        .sidus-menuitem {
+          padding-left: 60px;
+          line-height: 50px;
+        }
+      }
+
+      .sidus-menuitem {
+        padding-left: 40px;
+      }
+
+
+      &.collapsed {
+        height: 0px;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import '../../styles/mixins/border';
+
+.sidus- {
+  &tag_wrapper {
+    display: inline-flex;
+    padding: 0 5px;
+    font-size: 10px;
+    line-height: 20px;
+    cursor: pointer;
+
+    color: $COLOR_666;
+    @include bd($COLOR_666, 4px);
+
+    &.primary {
+      color: $COLOR_INK_GREEN;
+      @include bd($COLOR_INK_GREEN, 4px);
+    }
+  }
+}

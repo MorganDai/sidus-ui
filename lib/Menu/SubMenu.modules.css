@@ -1,0 +1,34 @@
+.sidus-submenu_title, .sidus-item-group_title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #404040;
+  font-size: 14px;
+  line-height: 60px;
+  padding-left: 20px; }
+  .sidus-submenu_title.active:not(.sidus-item-group), .sidus-submenu_title:hover:not(.sidus-item-group), .sidus-item-group_title.active:not(.sidus-item-group), .sidus-item-group_title:hover:not(.sidus-item-group) {
+    background-color: #fafafa; }
+    .sidus-submenu_title.active:not(.sidus-item-group)::before, .sidus-submenu_title:hover:not(.sidus-item-group)::before, .sidus-item-group_title.active:not(.sidus-item-group)::before, .sidus-item-group_title:hover:not(.sidus-item-group)::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: "";
+      width: 2px;
+      height: 100%;
+      background-color: #46aa5f; }
+
+.sidus-submenu_box, .sidus-item-group_box {
+  overflow: hidden;
+  transition: all .5s ease-in-out; }
+  .sidus-submenu_box .sidus-submenu_wrapper .sidus-submenu_title, .sidus-item-group_box .sidus-submenu_wrapper .sidus-submenu_title {
+    padding-left: 40px;
+    font-size: 12px;
+    color: #999; }
+  .sidus-submenu_box .sidus-submenu_wrapper .sidus-menuitem, .sidus-item-group_box .sidus-submenu_wrapper .sidus-menuitem {
+    padding-left: 60px;
+    line-height: 50px; }
+  .sidus-submenu_box .sidus-menuitem, .sidus-item-group_box .sidus-menuitem {
+    padding-left: 40px; }
+  .sidus-submenu_box.collapsed, .sidus-item-group_box.collapsed {
+    height: 0px; }

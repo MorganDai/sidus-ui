@@ -1,0 +1,32 @@
+@import "../../styles/color/color.scss";
+
+.sidus- {
+  &popover {
+    &_wrapper {
+      font-size: 0;
+    }
+
+    &-box {
+      &_wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        visibility: hidden;
+
+        &.visible {
+          visibility: visible;
+        }
+      }
+
+      &_context {
+        position: absolute;
+        z-index: 1030;
+        user-select: text;
+      }
+    }
+
+    &_trigger {
+      display: inline-flex;
+    }
+  }
+}

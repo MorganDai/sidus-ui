@@ -1,0 +1,78 @@
+.sidus-file-uploader_wrapper {
+  display: inline-flex; }
+
+.sidus-file-uploader_area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  cursor: pointer; }
+
+.sidus-file-uploader_finished {
+  display: inline-block;
+  width: 157px;
+  font-size: 10px;
+  padding: 13px 25px 13px 24px;
+  text-align: center;
+  visibility: hidden;
+  background: #46aa5f;
+  word-wrap: break-word;
+  color: #fff;
+  border-radius: 6px; }
+  .sidus-file-uploader_finished.uploaded {
+    visibility: visible; }
+
+.sidus-file-uploader_area.uploaded {
+  visibility: hidden; }
+
+.sidus-file-uploader_add {
+  position: absolute;
+  left: 50%;
+  top: 50%; }
+  .sidus-file-uploader_add::before, .sidus-file-uploader_add::after {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 2px;
+    background: #d2d2d2;
+    border-radius: 2px;
+    overflow: hidden; }
+  .sidus-file-uploader_add::after {
+    transform: rotate(90deg); }
+
+.sidus-file-uploader_label {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #d2d2d2; }
+  .sidus-file-uploader_label.uploaded {
+    visibility: hidden; }
+
+.sidus-file-uploader_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 330px;
+  height: 220px;
+  position: relative;
+  border: none; }
+  .sidus-file-uploader_box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    border: 1px solid #666;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transition: all .5s linear;
+    transform: scale(0.5);
+    -webkit-transform-origin: left top;
+    transform-origin: left top; }

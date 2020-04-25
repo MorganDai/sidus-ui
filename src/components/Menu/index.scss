@@ -1,0 +1,21 @@
+@import "../../styles/color/color.scss";
+
+.sidus- {
+    &menu_ {
+        &wrapper {
+            padding: 10px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        &title {
+            height: 60px;
+            line-height: 60px;
+            font-size: 20px;
+            padding-left: 20px;
+            color: $COLOR_40;
+            font-weight: 700;
+        }
+    }
+}

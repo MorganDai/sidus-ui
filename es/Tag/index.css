@@ -1,0 +1,45 @@
+.sidus-tag_wrapper {
+  display: inline-flex;
+  padding: 0 5px;
+  font-size: 10px;
+  line-height: 20px;
+  cursor: pointer;
+  color: #666;
+  position: relative;
+  border: none; }
+  .sidus-tag_wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+    border: 1px solid #666;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transition: all .5s linear;
+    transform: scale(0.5);
+    -webkit-transform-origin: left top;
+    transform-origin: left top; }
+  .sidus-tag_wrapper.primary {
+    color: #46aa5f;
+    position: relative;
+    border: none; }
+    .sidus-tag_wrapper.primary::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 8px;
+      border: 1px solid #46aa5f;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 200%;
+      height: 200%;
+      -webkit-transform: scale(0.5);
+      transition: all .5s linear;
+      transform: scale(0.5);
+      -webkit-transform-origin: left top;
+      transform-origin: left top; }

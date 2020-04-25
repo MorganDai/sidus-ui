@@ -1,0 +1,80 @@
+.sidus-input_wrapper {
+  text-align: center; }
+  .sidus-input_wrapper.required .sidus-input_label::before {
+    content: "* ";
+    color: #fc5046; }
+  .sidus-input_wrapper.align-horizontal {
+    display: flex;
+    justify-content: flex-start; }
+    .sidus-input_wrapper.align-horizontal .sidus-input_box {
+      margin-left: 20px;
+      flex: 1; }
+  .sidus-input_wrapper .sidus-input_box {
+    position: relative;
+    border: none; }
+    .sidus-input_wrapper .sidus-input_box::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 160px;
+      border: 1px solid #d2d2d2;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 200%;
+      height: 200%;
+      -webkit-transform: scale(0.5);
+      transition: all .5s linear;
+      transform: scale(0.5);
+      -webkit-transform-origin: left top;
+      transform-origin: left top; }
+    .sidus-input_wrapper .sidus-input_box::after {
+      transition: all .5s; }
+  .sidus-input_wrapper input {
+    position: relative;
+    z-index: 5;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 20px;
+    line-height: 40px;
+    height: 40px;
+    border-radius: 40px;
+    max-width: 100%;
+    background: transparent; }
+    .sidus-input_wrapper input.search {
+      padding-left: 37px;
+      background-image: url("../../assets/images/product_search_searchbox.svg");
+      background-repeat: no-repeat;
+      background-size: 15px 15px;
+      background-position: 13px 13px;
+      background-color: #f2f2f2; }
+
+.sidus-input_label {
+  text-align-last: left;
+  font-size: 14px;
+  padding: 10px 0;
+  color: #404040;
+  font-weight: bold; }
+
+.sidus-input_box {
+  position: relative;
+  width: 100%;
+  line-height: 40px;
+  height: 40px; }
+
+.sidus-input_verify {
+  position: absolute !important;
+  right: 20px;
+  top: 0;
+  z-index: 5;
+  font-size: 12px;
+  line-height: 40px;
+  color: #666;
+  cursor: pointer;
+  transition: color .5s; }
+  .sidus-input_verify::after {
+    border-left: none; }
+  .sidus-input_verify:hover {
+    color: #46aa5f; }
+  .sidus-input_verify.disabled {
+    color: #d2d2d2; }

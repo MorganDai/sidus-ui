@@ -1,0 +1,30 @@
+@import "../../styles/index.scss";
+
+.sidus-{
+    &radio{
+        @extend .dis-ib;
+        @extend .bg-common;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background-image: url("../../assets/images/login_unchoose_n@2x.png");
+        
+        &.checked {
+            background-image: url("../../assets/images/login_choose_n@2x.png");
+        }
+
+        &_wrapper {
+            @extend .flex_center;
+        }
+        
+        &-label {
+            font-size: 10px;
+            color: $COLOR_B3;
+            cursor: pointer;
+            @extend .dis-ib;
+        }
+    }
+    
+    &radio {
+    }
+}

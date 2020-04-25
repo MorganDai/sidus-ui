@@ -1,0 +1,7 @@
+.sidus-collapse_wrapper {
+  overflow: hidden; }
+
+.sidus-collapse_box {
+  transition: height .5s ease-in-out; }
+  .sidus-collapse_box.collapsed {
+    height: 0; }

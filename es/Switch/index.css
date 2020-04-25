@@ -1,0 +1,24 @@
+.sidus-switch {
+  position: relative;
+  width: 28px; }
+  .sidus-switch_wrapper {
+    display: inline-flex;
+    padding: 2px;
+    height: 20px;
+    background: #d2d2d2;
+    border-radius: 10px;
+    transition: background-color .5s;
+    cursor: pointer; }
+    .sidus-switch_wrapper.active {
+      background: #46aa5f; }
+      .sidus-switch_wrapper.active .sidus-switch_inner {
+        left: 12px; }
+  .sidus-switch_inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: left .5s ease-in-out; }
