@@ -1,2 +1,2 @@
 /// <reference types="react" />
-import './index.scss';
+import './index.css';

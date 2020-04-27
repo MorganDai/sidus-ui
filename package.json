@@ -1,6 +1,6 @@
 {
   "name": "sidus-ui",
-  "version": "0.0.5",
+  "version": "0.0.17",
   "keywords": [
     "component",
     "components",
@@ -9,6 +9,11 @@
     "react",
     "react-component",
     "ui"
+  ],
+  "files": [
+    "dist",
+    "lib",
+    "es"
   ],
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -47,6 +52,7 @@
     "babel-plugin-inline-import-data-uri": "^1.0.1",
     "css-loader": "^3.5.3",
     "gulp-babel": "^8.0.0",
+    "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-strip-code": "^0.1.4",
     "gulp-typescript": "^6.0.0-alpha.1",

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var React = require("react");
 
-require("./index.scss");
+require("./index.css");
 
 var Icon = function Icon(props) {
   var name = props.name,

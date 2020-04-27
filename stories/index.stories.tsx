@@ -11,5 +11,5 @@ export const withEmoji = () => (
     <span role="img" aria-label="so cool">
       😀 😎 👍 💯
     </span>
-    </Button>
+  </Button>
 );

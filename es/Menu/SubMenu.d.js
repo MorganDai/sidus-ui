@@ -1,1 +1,1 @@
-import './SubMenu.modules.scss';
+import './SubMenu.modules.css';

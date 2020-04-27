@@ -6,6 +6,7 @@ const through2 = require('through2');
 const merge2 = require('merge2')
 const rimraf = require('rimraf');
 const stripCode = require('gulp-strip-code');
+const replace = require('gulp-replace');
 const gulp = require('gulp');
 const ts = require('gulp-typescript');
 const sass = require('gulp-sass');
@@ -108,6 +109,11 @@ function dist(done) {
 	});
 }
 
+function writeFile (source, dest) {
+	gulp.src(source)
+		.pipe(ts())
+		.pipe(gulp.dest(dest));
+}
 
 function compile(modules) {
 	rimraf.sync(modules !== false ? libDir : esDir);
@@ -118,31 +124,34 @@ function compile(modules) {
 		.pipe(gulp.dest(modules === false ? esDir : libDir));
 
 	const assets = gulp
-		.src(['./src/assets/**/*.(png|svg)'])
-		.pipe(gulp.dest(modules === false ? esDir : libDir));
+		.src(['./src/assets/**/*.{png,jpg,jpeg,gif,svg,ico}'])
+		.pipe(gulp.dest(modules === false ? (esDir  + '/assets') : (libDir  + '/assets')));
 
 	let error = 0;
-	const source = [
+	let source = [
 		'./src/components/**/*.tsx',
-		'./src/components/**/*.ts', './src/*',
-		'./src/utils/*.ts',
-		'./src/constants/*.ts',
-		'./src/index.ts'
+		'./src/components/**/*.ts',
 	];
 
 	if (tsConfig.allowJs) {
 		source.push('./src/components/**/*.jsx');
 	}
 
-	const tsResult = gulp.src(source).pipe(
-		ts(tsConfig, {
-			error(e) {
-				tsDefaultReporter.error(e);
-				error = 1;
-			},
-			finish: tsDefaultReporter.finish
-		})
-	);
+	writeFile(['./src/utils/**/*.ts'], (modules === false ? esDir : libDir) + '/utils');
+	writeFile(['./src/constant/**/*.ts'], (modules === false ? esDir : libDir) + '/constant');
+
+	const tsResult = gulp.src(source)
+		.pipe(replace('.scss', '.css'))
+		.pipe(
+			ts(tsConfig, {
+					error(e) {
+						tsDefaultReporter.error(e);
+						error = 1;
+					},
+					finish: tsDefaultReporter.finish
+				}
+			)
+		);
 
 	function check () {
 		if (error && !argv['ignore-error']) {
@@ -153,7 +162,9 @@ function compile(modules) {
 	tsResult.on('finish', check);
 	tsResult.on('end', check);
 	const tsFiesStream = babelify(tsResult, modules);
-	const tsd = tsResult.dts.pipe(gulp.dest(modules === false ? esDir : libDir));
+	const tsd = tsResult.dts
+		.pipe(gulp.dest((modules === false ? esDir : libDir) + '/components'));
+
 
 	return merge2([scss, tsFiesStream, tsd, assets]);
 };
@@ -164,6 +175,30 @@ gulp.task(
 		dist(done);
 	})
 );
+
+gulp.task('correct-es-path', done => {
+	console.log('[Parallel] Correct es path...');
+	gulp.src(['./es/**/*.js'])
+		.pipe(replace('../../', '../'))
+		.pipe(gulp.dest(esDir));
+
+	gulp.src(['./es/**/*.css'])
+		.pipe(replace('../../', '../'))
+		.pipe(gulp.dest(esDir));
+	done();
+});
+
+gulp.task('correct-lib-path', done => {
+	console.log('[Parallel] Correct es path...');
+	gulp.src(['./lib/**/*.js'])
+		.pipe(replace('../../', '../'))
+		.pipe(gulp.dest(libDir));
+
+	gulp.src(['./lib/**/*.css'])
+		.pipe(replace('../../', '../'))
+		.pipe(gulp.dest(esDir));
+	done();
+});
 
 gulp.task('compile-with-es', done =>{
 	console.log('[Parallel] Compile to es...');
@@ -181,5 +216,8 @@ gulp.task('compile-finalize', done => {
 
 gulp.task(
 	'compile',
-	gulp.series(gulp.parallel('compile-with-es', 'compile-with-lib'))
+	gulp.series(
+		gulp.parallel('compile-with-es', 'compile-with-lib'),
+		gulp.parallel('correct-es-path', 'correct-lib-path')
+	)
 )

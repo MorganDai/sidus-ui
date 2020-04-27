@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var React = require("react");
 
-require("./index.scss");
+require("./index.css");
 
 var Radio = function Radio(props) {
   var label = props.label,

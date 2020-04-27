@@ -10,9 +10,9 @@ var react_1 = require("react");
 
 var ReactDOM = require("react-dom");
 
-var classNames_1 = require("../../utils/classNames");
+var classNames_1 = require("../utils/classNames");
 
-require("./index.scss");
+require("./index.css");
 
 var Popover = function Popover(props) {
   var rootDom = props.rootDom;

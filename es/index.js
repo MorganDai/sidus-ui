@@ -1,94 +1,95 @@
-"use strict"; // import "./styles/index";
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var Avatar_1 = require("./components/Avatar");
+var Avatar_1 = require("./Avatar");
 
 exports.Avatar = Avatar_1["default"];
 
-var Button_1 = require("./components/Button");
+var Button_1 = require("./Button");
 
 exports.Button = Button_1["default"];
 
-var Checkbox_1 = require("./components/Checkbox");
+var Checkbox_1 = require("./Checkbox");
 
 exports.Checkbox = Checkbox_1["default"];
 
-var CheckboxGroup_1 = require("./components/Checkbox/CheckboxGroup");
+var CheckboxGroup_1 = require("./Checkbox/CheckboxGroup");
 
 exports.CheckboxGroup = CheckboxGroup_1["default"];
 
-var Collapse_1 = require("./components/Collapse");
+var Collapse_1 = require("./Collapse");
 
 exports.Collapse = Collapse_1["default"];
 
-var DelSlide_1 = require("./components/DelSlide");
+var DelSlide_1 = require("./DelSlide");
 
 exports.DelSlide = DelSlide_1["default"];
 
-var Icon_1 = require("./components/Icon");
+var Icon_1 = require("./Icon");
 
 exports.Icon = Icon_1["default"];
 
-var Input_1 = require("./components/Input");
+var Input_1 = require("./Input");
 
 exports.Input = Input_1["default"];
 
-var FileUploader_1 = require("./components/FileUploader");
+var FileUploader_1 = require("./FileUploader");
 
 exports.FileUploader = FileUploader_1["default"];
 
-var fileUploaderHelper_1 = require("./components/FileUploader/fileUploaderHelper");
+var fileUploaderHelper_1 = require("./FileUploader/fileUploaderHelper");
 
 exports.FileUploaderHelper = fileUploaderHelper_1["default"];
 
-var Form_1 = require("./components/Form/Form");
+var Form_1 = require("./Form/Form");
 
 exports.Form = Form_1["default"];
 
-var FormField_1 = require("./components/Form/FormField");
+var FormField_1 = require("./Form/FormField");
 
 exports.FormField = FormField_1["default"];
 
-var FormStore_1 = require("./components/Form/FormStore");
+var FormStore_1 = require("./Form/FormStore");
 
 exports.FormStore = FormStore_1["default"];
 
-var Popover_1 = require("./components/Popover");
+var Popover_1 = require("./Popover");
 
 exports.Popover = Popover_1["default"];
 
-var Popup_1 = require("./components/Popup");
+var Popup_1 = require("./Popup");
 
 exports.Popup = Popup_1["default"];
 
-var index_1 = require("./components/Radio/index");
+var Radio_1 = require("./Radio");
 
-exports.Radio = index_1["default"];
+exports.Radio = Radio_1["default"];
 
-var index_2 = require("./components/Menu/index");
+var Select_1 = require("./Select");
 
-exports.Menu = index_2["default"];
+exports.Select = Select_1["default"];
 
-var MenuItem_1 = require("./components/Menu/MenuItem");
+var Switch_1 = require("./Switch");
 
-var MenuItemGroup_1 = require("./components/Menu/MenuItemGroup");
+exports.Switch = Switch_1["default"];
 
-var index_3 = require("./components/Select/index");
-
-exports.Select = index_3["default"];
-
-var index_4 = require("./components/Switch/index");
-
-exports.Switch = index_4["default"];
-
-var SubMenu_1 = require("./components/Menu/SubMenu");
-
-var Tag_1 = require("./components/Tag");
+var Tag_1 = require("./Tag");
 
 exports.Tag = Tag_1["default"];
-index_2["default"].Item = MenuItem_1["default"];
-index_2["default"].ItemGroup = MenuItemGroup_1["default"];
-index_2["default"].SubMenu = SubMenu_1["default"];
+
+var Menu_1 = require("./Menu");
+
+exports.Menu = Menu_1["default"];
+
+var MenuItem_1 = require("./Menu/MenuItem");
+
+var MenuItemGroup_1 = require("./Menu/MenuItemGroup");
+
+var SubMenu_1 = require("./Menu/SubMenu");
+
+Menu_1["default"].Item = MenuItem_1["default"];
+Menu_1["default"].ItemGroup = MenuItemGroup_1["default"];
+Menu_1["default"].SubMenu = SubMenu_1["default"];

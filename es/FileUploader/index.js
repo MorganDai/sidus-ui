@@ -8,11 +8,11 @@ var React = require("react");
 
 var react_1 = require("react");
 
-var classNames_1 = require("../../utils/classNames");
+var classNames_1 = require("../utils/classNames");
 
 var fileUploaderHelper_1 = require("./fileUploaderHelper");
 
-require("./index.scss");
+require("./index.css");
 
 var FileUploader = function FileUploader(props) {
   var prefix = 'file-uploader_';

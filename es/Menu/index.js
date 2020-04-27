@@ -22,7 +22,7 @@ var React = require("react");
 
 var MenuContext_1 = require("./MenuContext");
 
-require("./index.scss");
+require("./index.css");
 
 var Menu = function Menu(props) {
   var title = props.title,

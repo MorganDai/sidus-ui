@@ -20,12 +20,12 @@
     top: 0;
     width: 80px;
     height: 80px;
-    background-image: url("../../assets/images/manage_participant_trash_n.svg");
+    background-image: url("../assets/images/manage_participant_trash_n.svg");
     transition: background .5s;
     cursor: pointer;
     z-index: 2; }
     .sidus-del-slide_trash:hover {
-      background-image: url("../../assets/images/manage_participant_trash_p.svg"); }
+      background-image: url("../assets/images/manage_participant_trash_p.svg"); }
   .sidus-del-slide .sidus-icon_box {
     margin-right: 20px; }
   .sidus-del-slide_content {

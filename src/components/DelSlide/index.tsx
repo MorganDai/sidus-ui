@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Icon } from '../../index';
+import { Icon } from '../index';
 import { genClassName } from '../../utils/classNames';
 
 import './index.scss';

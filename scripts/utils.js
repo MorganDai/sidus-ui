@@ -6,7 +6,7 @@ function cssInjection(content) {
 	return content
 		.replace(/\/style\/?'/g, "/style/css'")
 		.replace(/\/style\/?"/g, '/style/css"')
-		.replace(/\.less/g, '.css');
+		.replace(/\.scss/g, '.css');
 }
 
 module.exports = {
@@ -22,7 +22,7 @@ function resolve(moduleName) {
 }
 
 function getConfig() {
-	const configPath = getProjectPath('.antd-tools.config.js');
+	const configPath = getProjectPath('.sidus-tools.config.js');
 	if (fs.existsSync(configPath)) {
 		return require(configPath);
 	}

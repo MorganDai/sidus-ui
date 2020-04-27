@@ -8,9 +8,9 @@ var React = require("react");
 
 var MenuContext_1 = require("./MenuContext");
 
-var tools_1 = require("../../utils/tools");
+var tools_1 = require("../utils/tools");
 
-require("./MenuItem.modules.scss");
+require("./MenuItem.modules.css");
 
 var MenuItem = function MenuItem(props) {
   var context = React.useContext(MenuContext_1["default"]);

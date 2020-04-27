@@ -6,13 +6,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var React = require("react");
 
-var index_1 = require("../../index");
+var index_1 = require("../index");
 
 var context_1 = require("./context");
 
-var classNames_1 = require("../../utils/classNames");
+var classNames_1 = require("../utils/classNames");
 
-require("./index.scss");
+require("./index.css");
 
 var Checkbox = function Checkbox(props) {
   var _a = props.icon,

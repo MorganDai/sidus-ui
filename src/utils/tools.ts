@@ -14,4 +14,4 @@ export {
     doNothing,
     toNumArray,
     preventDefault
-}
+};
