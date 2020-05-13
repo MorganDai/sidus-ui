@@ -33,7 +33,7 @@ const CollapsePanel = (props: CollapsePanelProps) => {
     // @ts-ignore
     toNumArray(ctx.activeKey).indexOf(+id) === -1
   );
-  const cls = genClassName('collapse_wrapper') + ' ' + className;
+  const cls = genClassName('collapse_wrapper-inner') + ' ' + className;
 
   const trigger = (e: React.MouseEvent<HTMLDivElement>) => {
     const specifyTrigger = triggerId ? document.querySelector(`#${triggerId}`) : null;
