@@ -21,7 +21,7 @@ interface SubMenuProps {
   onTitleClick?: Function;
 }
 
-const SubMenu = React.forwardRef((props: SubMenuProps, ref: any) => {
+const SubMenu = (props: SubMenuProps) => {
   const context = React.useContext(MenuContext);
   const {
     disabled = false,
@@ -30,6 +30,7 @@ const SubMenu = React.forwardRef((props: SubMenuProps, ref: any) => {
     underSub = false,
     popupClassName = '',
     noIcon = false,
+    triggerRef = null,
     onTitleClick = () => {},
     children,
     title,
@@ -78,13 +79,13 @@ const SubMenu = React.forwardRef((props: SubMenuProps, ref: any) => {
     genClassName('submenu_title') + ' ' + (isActive && !disabled ? 'active' : '');
 
   // @ts-ignore
-  const BoxDiv = ({...props}) => <div {...props}>{ props.children }</div>
+  const BoxDiv = React.forwardRef((props: any, ref) => <div {...props} ref={ref}>{ props.children }</div>);
 
   return (
     <MenuContext.Consumer>
       {() => (
         <div className={`${genClassName('submenu_wrapper')} ${popupClassName}`}>
-          <BoxDiv className={titleCls} ref={ref} onClick={() => trigger(id)}>
+          <BoxDiv className={titleCls} ref={triggerRef} onClick={() => trigger(id)}>
             {title}
             {!disableCollapse && !noIcon ? <Icon name={icon} /> : ''}
           </BoxDiv>
@@ -102,6 +103,6 @@ const SubMenu = React.forwardRef((props: SubMenuProps, ref: any) => {
       )}
     </MenuContext.Consumer>
   );
-});
+};
 
 export default SubMenu;
