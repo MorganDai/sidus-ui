@@ -13,6 +13,7 @@ interface SubMenuProps {
   collapsed?: boolean;
   disableCollapse?: boolean;
   disabled?: boolean;
+  triggerRef?: any;
   id?: string;
   title?: string;
   underSub?: boolean;
@@ -20,7 +21,7 @@ interface SubMenuProps {
   onTitleClick?: Function;
 }
 
-const SubMenu = React.forwardRef((props: SubMenuProps, ref) => {
+const SubMenu = React.forwardRef((props: SubMenuProps, ref: any) => {
   const context = React.useContext(MenuContext);
   const {
     disabled = false,
@@ -42,24 +43,15 @@ const SubMenu = React.forwardRef((props: SubMenuProps, ref) => {
 
   const trigger = (id: string | undefined) => {
     // e.nativeEvent.stopImmediatePropagation();
-    if (!underSub) {
-      // @ts-ignore
-      context.setParentSubMenu(list.current);
-      // context.parentSubMenu = list.current;
-    }
+    // @ts-ignore
+    if (!underSub) { context.setParentSubMenu(list.current); }
 
-    if (list) {
-      // @ts-ignore
-      setHeight(list.current.clientHeight);
-    }
+    // @ts-ignore
+    if (list) { setHeight(list.current.clientHeight); }
 
-    if (disableCollapse) {
-      return;
-    }
+    if (disableCollapse) { return; }
 
-    if (!status) {
-      setHeight(0);
-    }
+    if (!status) { setHeight(0); }
 
     setIcon(status ? 'dropdown' : 'right_arrow');
     setStatus(!status);
