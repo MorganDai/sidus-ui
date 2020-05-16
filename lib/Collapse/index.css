@@ -1,6 +1,6 @@
 .sidus-collapse_wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   overflow: hidden; }
 
 .sidus-collapse_header {

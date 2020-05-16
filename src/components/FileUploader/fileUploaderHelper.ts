@@ -32,7 +32,7 @@ function FileUploaderHelper(boxId: string, fileInputId: string, callback: Callba
 
     // @ts-ignore
     box.addEventListener('click', e => {
-      // e.preventDefault();
+      e.stopPropagation();
       // 点击上传
       // @ts-ignore
       fileInput.click();
