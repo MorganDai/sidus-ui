@@ -160,9 +160,9 @@ var Select = function Select(props) {
   }, hasSelected ? showText : ''), React.createElement(index_1["default"], {
     name: "dropdown",
     cls: "pos-r z-1"
-  })), React.createElement("ul", {
+  })), React.createElement("div", {
     className: "sidus-select_list " + (collapse ? '' : 'no-collapse')
-  }, list)));
+  }, React.createElement("ul", null, list))));
 };
 
 exports["default"] = Select;

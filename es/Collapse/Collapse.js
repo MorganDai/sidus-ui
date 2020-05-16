@@ -35,7 +35,7 @@ var Collapse = function Collapse(props) {
       onChange: onChange
     }
   }, React.createElement("div", {
-    className: classNames_1.genClassName('collapse_wrapper')
+    className: classNames_1.genClassName('collapse_wrapper-cell')
   }, children));
 }; // @ts-ignore
 

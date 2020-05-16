@@ -1,7 +1,15 @@
 .sidus-collapse {
 
     &_wrapper {
+	display: flex;
+	flex-direction: column-reverse;
         overflow: hidden;
+    }
+
+    &_header {
+    	position: relative;
+	background: #fff;
+	z-index: 10;
     }
 
     &_box {

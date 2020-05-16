@@ -33,7 +33,7 @@ const CollapsePanel = (props: CollapsePanelProps) => {
     // @ts-ignore
     toNumArray(ctx.activeKey).indexOf(+id) === -1
   );
-  const cls = genClassName('collapse_wrapper-inner') + ' ' + className;
+  const cls = genClassName('collapse_wrapper') + ' ' + className;
 
   const trigger = (e: React.MouseEvent<HTMLDivElement>) => {
     const specifyTrigger = triggerId ? document.querySelector(`#${triggerId}`) : null;
@@ -80,16 +80,7 @@ const CollapsePanel = (props: CollapsePanelProps) => {
   return (
     <CollapseContext.Consumer>
       {() => (
-        <div className={cls}>
-          <div
-            className={genClassName('collapse_header') + (disabled ? 'disabled' : '')}
-            onClick={e => {
-              trigger(e);
-            }}
-          >
-            {header}
-          </div>
-
+        <div className={cls} >
           <div
             className={genClassName('collapse_box')}
             style={{
@@ -99,7 +90,16 @@ const CollapsePanel = (props: CollapsePanelProps) => {
             <div className={collapseCls} ref={ref}>
               {children}
             </div>
-          </div>
+	  </div>
+
+	  <div
+	    className={genClassName('collase_header') + (disabled ? 'disabled' : '')}
+	    onClick={ e => {
+	      trigger(e);
+	    }}
+	  >
+	    { header }
+	  </div>
         </div>
       )}
     </CollapseContext.Consumer>

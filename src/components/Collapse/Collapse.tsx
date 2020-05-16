@@ -30,7 +30,7 @@ const Collapse = (props: CollapseProps) => {
         onChange
       }}
     >
-      <div className={genClassName('collapse_wrapper')}>{children}</div>
+      <div className={genClassName('collapse_wrapper-cell')}>{children}</div>
     </CollapseContext.Provider>
   );
 };

@@ -1,5 +1,12 @@
 .sidus-collapse_wrapper {
+  display: flex;
+  flex-direction: column;
   overflow: hidden; }
+
+.sidus-collapse_header {
+  position: relative;
+  background: #fff;
+  z-index: 10; }
 
 .sidus-collapse_box {
   transition: height .5s ease-in-out; }
