@@ -122,7 +122,9 @@ const Select = (props: SelectProps) => {
           <Icon name="dropdown" cls="pos-r z-1" />
         </div>
 
-        <ul className={`sidus-select_list ${collapse ? '' : 'no-collapse'}`}>{list}</ul>
+        <div className={`sidus-select_list ${collapse ? '' : 'no-collapse'}`}>
+          <ul>{list}</ul>
+        </div>
       </div>
     </div>
   );
