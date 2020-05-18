@@ -52,7 +52,7 @@ var FileUploader = function FileUploader(props) {
       fileNameJudgeFunc: fileNameJudgeFunc,
       fileTypeJudgeFunc: fileTypeJudgeFunc
     });
-  }, [fileNameJudgeFunc, fileTypeJudgeFunc, fileUploaderId, inputId, onFileChoose, onFileUploaded]);
+  }, []);
   return React.createElement("div", {
     className: classNames_1.genClassName(prefix + 'wrapper'),
     id: 'file-uploader' + fileUploaderId,

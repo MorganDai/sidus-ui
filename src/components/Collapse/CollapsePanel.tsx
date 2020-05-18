@@ -82,6 +82,15 @@ const CollapsePanel = (props: CollapsePanelProps) => {
       {() => (
         <div className={cls} >
           <div
+            className={genClassName('collase_header') + (disabled ? 'disabled' : '')}
+            onClick={ e => {
+              trigger(e);
+            }}
+          >
+            { header }
+          </div>
+
+          <div
             className={genClassName('collapse_box')}
             style={{
               height
@@ -90,17 +99,8 @@ const CollapsePanel = (props: CollapsePanelProps) => {
             <div className={collapseCls} ref={ref}>
               {children}
             </div>
-	  </div>
-
-	  <div
-	    className={genClassName('collase_header') + (disabled ? 'disabled' : '')}
-	    onClick={ e => {
-	      trigger(e);
-	    }}
-	  >
-	    { header }
-	  </div>
-        </div>
+	        </div>
+        </div>  
       )}
     </CollapseContext.Consumer>
   );

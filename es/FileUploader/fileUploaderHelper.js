@@ -31,19 +31,22 @@ function FileUploaderHelper(boxId, fileInputId, callback) {
     }; // @ts-ignore
 
 
-    box.addEventListener('click', function (e) {
-      e.stopPropagation(); // 点击上传
-      // @ts-ignore
-
+    var triggerFile = function triggerFile() {
       fileInput.click();
-    }); // @ts-ignore
+    }; // @ts-ignore
 
-    fileInput.addEventListener('change', function (e) {
+
+    box.addEventListener('click', triggerFile);
+
+    var changeCallback = function changeCallback() {
       // @ts-ignore
       onFileChoose && onFileChoose(fileInput.files[0]); // @ts-ignore
 
       doResponse(fileInput.files[0]);
-    }); // 拖拽文件
+    }; // @ts-ignore
+
+
+    fileInput.addEventListener('change', changeCallback); // 拖拽文件
 
     if (typeof Worker !== 'undefined') {
       // @ts-ignore
@@ -53,8 +56,7 @@ function FileUploaderHelper(boxId, fileInputId, callback) {
         tools_1.preventDefault(e);
         var dt = e.dataTransfer; // @ts-ignore
 
-        var files = dt.files; // @ts-ignore
-
+        var files = dt.files;
         doResponse(files[0]);
       }, false);
     } else {

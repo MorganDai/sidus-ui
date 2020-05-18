@@ -48,14 +48,7 @@ const FileUploader = (props: FileUploaderProps) => {
         fileTypeJudgeFunc
       }
     );
-  }, [
-    fileNameJudgeFunc,
-    fileTypeJudgeFunc,
-    fileUploaderId,
-    inputId,
-    onFileChoose,
-    onFileUploaded
-  ]);
+  }, []);
 
   return (
     <div

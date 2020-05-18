@@ -95,6 +95,11 @@ var CollapsePanel = function CollapsePanel(props) {
     return React.createElement("div", {
       className: cls
     }, React.createElement("div", {
+      className: classNames_1.genClassName('collase_header') + (disabled ? 'disabled' : ''),
+      onClick: function onClick(e) {
+        trigger(e);
+      }
+    }, header), React.createElement("div", {
       className: classNames_1.genClassName('collapse_box'),
       style: {
         height: height
@@ -102,12 +107,7 @@ var CollapsePanel = function CollapsePanel(props) {
     }, React.createElement("div", {
       className: collapseCls,
       ref: ref
-    }, children)), React.createElement("div", {
-      className: classNames_1.genClassName('collase_header') + (disabled ? 'disabled' : ''),
-      onClick: function onClick(e) {
-        trigger(e);
-      }
-    }, header));
+    }, children)));
   });
 };
 

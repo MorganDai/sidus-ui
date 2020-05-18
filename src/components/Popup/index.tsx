@@ -8,6 +8,7 @@ interface PopupProps {
   content: React.ReactNode | HTMLElement;
   title?: React.ReactNode | HTMLElement;
   bg?: string;
+  isLoading ?: boolean;
   noContentCls?: boolean;
   cls?: string;
 }
@@ -62,11 +63,10 @@ function Popup(props: PopupProps) {
     title = null,
     bg = 'rgba(153, 153, 153, .6)',
     noContentCls = false,
+    isLoading = false,
     cls = ''
   } = props;
-
-  let scrollTop = 0;
-
+  let loadingPop = isLoading;
   const wrapper = document.createElement('div');
   // const element = genEle({ show: false, children: [title, content], bg });
   wrapper.id = genClassName('popup_wrapper' + Math.floor(Math.random() * 1000000));
@@ -75,30 +75,27 @@ function Popup(props: PopupProps) {
   // ReactDOM.render(element, wrapper);
   // document.documentElement.appendChild(wrapper);
 
-  const stillDocument = () => {
-    window.scrollTo(0, scrollTop);
-  };
-
   return {
     show: () => {
-      scrollTop = window.scrollY;
-
       // 检查wrapper是否绑定在document上
-      if (document.documentElement.contains(wrapper)) {
+      if (document.documentElement.contains(wrapper) && !isLoading) {
         document.documentElement.removeChild(wrapper);
+      }
+
+      if (loadingPop) {
+        return;
       }
 
       ReactDOM.render(
         genEle({ show: true, children: [title, content], bg, noContentCls }),
         wrapper
       );
+
       document.documentElement.appendChild(wrapper);
-      document.addEventListener('scroll', stillDocument);
+      loadingPop = true;
     },
 
     close: () => {
-      document.removeEventListener('scroll', stillDocument);
-
       if (document.documentElement.contains(wrapper)) {
         // hack 方法解决连续打开弹窗 闪烁的问题
         setImmediate(() => {

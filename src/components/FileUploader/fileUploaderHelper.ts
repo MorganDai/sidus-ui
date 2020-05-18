@@ -31,20 +31,20 @@ function FileUploaderHelper(boxId: string, fileInputId: string, callback: Callba
     };
 
     // @ts-ignore
-    box.addEventListener('click', e => {
-      e.stopPropagation();
-      // 点击上传
-      // @ts-ignore
-      fileInput.click();
-    });
+    const triggerFile = () => { fileInput.click(); };
 
     // @ts-ignore
-    fileInput.addEventListener('change', e => {
+    box.addEventListener('click', triggerFile);
+
+    const changeCallback = () => {
       // @ts-ignore
       onFileChoose && onFileChoose(fileInput.files[0]);
       // @ts-ignore
       doResponse(fileInput.files[0]);
-    });
+    }
+
+    // @ts-ignore
+    fileInput.addEventListener('change', changeCallback);
 
     // 拖拽文件
     if (typeof Worker !== 'undefined') {
@@ -56,11 +56,9 @@ function FileUploaderHelper(boxId: string, fileInputId: string, callback: Callba
         'drop',
         e => {
           preventDefault(e);
-
           const dt = e.dataTransfer;
           // @ts-ignore
           const files = dt.files;
-          // @ts-ignore
           doResponse(files[0]);
         },
         false
