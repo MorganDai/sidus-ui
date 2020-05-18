@@ -82,7 +82,7 @@ function Popup(props: PopupProps) {
         document.documentElement.removeChild(wrapper);
       }
 
-      if (loadingPop) {
+      if (loadingPop && document.documentElement.contains(wrapper)) {
         return;
       }
 
