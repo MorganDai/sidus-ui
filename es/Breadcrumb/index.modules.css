@@ -1,0 +1,16 @@
+.sidus-breadcrumb {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 0;
+  list-style: none; }
+  .sidus-breadcrumb-wrapper {
+    user-select: none; }
+  .sidus-breadcrumb-item {
+    cursor: pointer;
+    font-size: 16px;
+    color: #999; }
+    .sidus-breadcrumb-item .active {
+      color: #464646; }
+  .sidus-breadcrumb-separator {
+    margin: 0 10px; }

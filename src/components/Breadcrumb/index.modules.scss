@@ -1,0 +1,27 @@
+.sidus- {
+  &breadcrumb {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0;
+    list-style: none;
+
+    &-wrapper {
+      user-select: none;
+    }
+
+    &-item {
+      cursor: pointer;
+      font-size: 16px;
+      color: #999;
+
+      .active {
+        color: #464646;
+      }
+    }
+
+    &-separator {
+      margin: 0 10px;
+    }
+  }
+}
