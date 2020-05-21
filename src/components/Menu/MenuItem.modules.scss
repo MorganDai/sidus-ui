@@ -26,6 +26,12 @@
                     background-color: $COLOR_INK_GREEN;
                 }
             }
+
+            &:hover {
+                &::before {
+                    display: none;
+                }
+            }
         }
     }
 }

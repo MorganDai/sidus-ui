@@ -3,7 +3,7 @@ function doNothing () {
 }
 
 function toNumArray(target) {
-    return Array.isArray(target) ? target.map(item => +item) : [+target]
+    return Array.isArray(target) ? [...target.map(item => +item)] : [+target]
 }
 
 function preventDefault(e) {

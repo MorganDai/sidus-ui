@@ -17,3 +17,5 @@
       width: 2px;
       height: 100%;
       background-color: #46aa5f; }
+  .sidus-menuitem:hover::before {
+    display: none; }

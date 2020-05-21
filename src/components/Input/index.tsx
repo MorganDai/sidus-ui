@@ -64,10 +64,15 @@ const Input = (props: InputProps) => {
   className += ['sidus-input_wrapper', focused ? '' : animationCls].join(' ');
   className += required ? ' required' : '';
 
-  const triggerGetVerify = () => {
+  const triggerGetVerify = async () => {
     if (disabledGetCode) return;
 
-    getVeriCodeCallback();
+    const shouldSend = await getVeriCodeCallback();
+
+    if (!shouldSend) {
+      return;
+    }
+    
     setStatus(VERIFY_REQUEST.REQUEST);
     setIntval(verifyCodeInterval);
     countDown();
@@ -82,9 +87,7 @@ const Input = (props: InputProps) => {
     setIntval(+intval - 1);
   }, [intval]);
 
-  const triggerChange = (e: any) => {
-    setInputs(e.target.value);
-  };
+  const triggerChange = (e: any) => setInputs(e.target.value);
 
   React.useEffect(() => {
     setInputs(value);
@@ -99,6 +102,7 @@ const Input = (props: InputProps) => {
 
       if (intval === 0) {
         sendVeriCodeFinished();
+        setIntval(60);
         setStatus(VERIFY_REQUEST.FINISHED);
       }
     }

@@ -76,7 +76,7 @@ const Popover = (props: PopoverProps) => {
 
       ReactDOM.render(child, rootDom);
     },
-    [rootDom, visible, eventTarget]
+    [visible, eventTarget]
   );
 
   const showModel = e => {

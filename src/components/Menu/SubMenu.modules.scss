@@ -17,8 +17,7 @@
       line-height: 60px;
       padding-left: 20px;
 
-      &.active:not(.sidus-item-group),
-      &:hover:not(.sidus-item-group) {
+      &.active:not(.sidus-item-group) {
         background-color: #fafafa;
 
         &::before {
@@ -30,6 +29,10 @@
           height: 100%;
           background-color: $COLOR_INK_GREEN;
         }
+      }
+
+      &:hover:not(.sidus-item-group) {
+        background-color: #fafafa;
       }
     }
 

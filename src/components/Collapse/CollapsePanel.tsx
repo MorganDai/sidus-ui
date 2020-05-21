@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { CollapseContext } from './context';
 import { genClassName } from '../../utils/classNames';
-import { toNumArray } from '../../utils/tools';
 
 import './index.scss';
 
@@ -9,6 +8,7 @@ interface CollapsePanelProps {
   header: React.ReactNode;
   disabled?: boolean;
   className?: string;
+  activeCls?: string;
   style?: React.CSSProperties;
   id?: string;
   extra?: React.ReactNode;
@@ -22,40 +22,37 @@ const CollapsePanel = (props: CollapsePanelProps) => {
     header,
     disabled = false,
     className = '',
+    activeCls = '',
     triggerId = '',
     children
   } = props;
 
   const ref = React.useRef(null);
   const ctx = React.useContext(CollapseContext);
+  const [ignoreFirstTrigger, setIgnoreFirstTrigger] = React.useState(true);
   const [height, setHeight] = React.useState(0);
-  const [collapsed, setCollapsed] = React.useState(
-    // @ts-ignore
-    toNumArray(ctx.activeKey).indexOf(+id) === -1
-  );
+  // @ts-ignore
+  const [collapsed, setCollapsed] = React.useState( ctx.activeKey.indexOf(+id) === -1 );
   const cls = genClassName('collapse_wrapper') + ' ' + className;
-
+  
   const trigger = (e: React.MouseEvent<HTMLDivElement>) => {
     const specifyTrigger = triggerId ? document.querySelector(`#${triggerId}`) : null;
-
     // @ts-ignore
     const noContainsAndNotEqual = specifyTrigger ? specifyTrigger !== e.target && !specifyTrigger.contains(e.target)  : false;
-
-    if (disabled || (triggerId && noContainsAndNotEqual)) {
-      return;
-    }
-
     // @ts-ignore
-    const idx = toNumArray(ctx.activeKey).indexOf(+id);
+    const idx = ctx.activeKey.indexOf(+id);
     let nextRes = false;
 
-    if (idx === -1) {
+    if (disabled || (triggerId && noContainsAndNotEqual)) { return; }
+
+    // @ts-ignore
+    if (idx === -1) { ctx.setActiveKey([...ctx.activeKey, +id]); }
+    if (idx !== -1) {
       // @ts-ignore
-      ctx.setActiveKey([...toNumArray(ctx.activeKey), +id]);
-    } else {
-      // @ts-ignore
-      const temp = toNumArray(ctx.activeKey);
+      const temp = [ ...ctx.activeKey ];
+      
       temp.splice(idx, 1);
+      // @ts-ignore
       nextRes = true;
       // @ts-ignore
       ctx.setActiveKey([...temp]);
@@ -66,25 +63,32 @@ const CollapsePanel = (props: CollapsePanelProps) => {
   };
 
   React.useEffect(() => {
-    if (collapsed) {
-      setHeight(0);
-    } else {
-      // @ts-ignore
-      setHeight(ref.current.clientHeight);
-    }
+    // @ts-ignore
+    if (!collapsed) { setHeight(ref.current.clientHeight); }
+  }, [children]);
+
+  React.useEffect(() => {
+    // @ts-ignore
+    if (collapsed) { setHeight(0); } else { setHeight(ref.current.clientHeight); }
   }, [collapsed]);
 
-  const collapseCls =
-    genClassName('collapse_content') + ' ' + (collapsed ? 'collapsed' : '');
+  const collapseCls = genClassName('collapse_content') + ' ' + (collapsed ? 'collapsed' : '');
 
   return (
     <CollapseContext.Consumer>
       {() => (
-        <div className={cls} >
+        <div className={cls + (collapsed ? '' : ` ${activeCls}`)} >
           <div
-            className={genClassName('collase_header') + (disabled ? 'disabled' : '')}
+            className={genClassName('collase_header') + (disabled ? ' disabled' : '')}
             onClick={ e => {
-              trigger(e);
+              if (ignoreFirstTrigger) {
+                setIgnoreFirstTrigger(false); 
+              }
+
+              if (ignoreFirstTrigger && collapsed) { 
+                return;
+              }
+              trigger(e); 
             }}
           >
             { header }
@@ -92,9 +96,7 @@ const CollapsePanel = (props: CollapsePanelProps) => {
 
           <div
             className={genClassName('collapse_box')}
-            style={{
-              height
-            }}
+            style={{ height }}
           >
             <div className={collapseCls} ref={ref}>
               {children}
