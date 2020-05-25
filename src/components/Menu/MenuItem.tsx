@@ -5,6 +5,7 @@ import { doNothing } from '../../utils/tools';
 import './MenuItem.modules.scss';
 
 interface MenuItemProps {
+  cls?: string;
   disabled?: boolean;
   title?: string;
   id?: string | number;
@@ -14,7 +15,7 @@ interface MenuItemProps {
 const MenuItem = (props: MenuItemProps) => {
   const context = React.useContext(MenuContext);
 
-  const { disabled = false, title = '', id = '', onClick } = props;
+  const { disabled = false, cls = '', title = '', id = '', onClick } = props;
 
   const trigger = () => {
     // @ts-ignore
@@ -30,7 +31,7 @@ const MenuItem = (props: MenuItemProps) => {
   return (
     <div className={`sidus-menuitem_wrapper`}>
       <div
-        className={`sidus-menuitem ${isActive ? 'active' : ''}`}
+        className={`sidus-menuitem ${cls} ${isActive ? 'active' : ''}`}
         onClick={disabled ? doNothing : trigger}
       >
         {title}

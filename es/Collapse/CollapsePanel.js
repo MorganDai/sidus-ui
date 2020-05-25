@@ -32,34 +32,36 @@ var CollapsePanel = function CollapsePanel(props) {
       header = props.header,
       _b = props.disabled,
       disabled = _b === void 0 ? false : _b,
-      _c = props.className,
-      className = _c === void 0 ? '' : _c,
-      _d = props.activeCls,
-      activeCls = _d === void 0 ? '' : _d,
-      _e = props.triggerId,
-      triggerId = _e === void 0 ? '' : _e,
+      _c = props.async,
+      async = _c === void 0 ? false : _c,
+      _d = props.className,
+      className = _d === void 0 ? '' : _d,
+      _e = props.activeCls,
+      activeCls = _e === void 0 ? '' : _e,
+      _f = props.triggerId,
+      triggerId = _f === void 0 ? '' : _f,
       children = props.children;
   var ref = React.useRef(null);
   var ctx = React.useContext(context_1.CollapseContext);
 
-  var _f = React.useState(true),
-      ignoreFirstTrigger = _f[0],
-      setIgnoreFirstTrigger = _f[1];
+  var _g = React.useState(true),
+      ignoreFirstTrigger = _g[0],
+      setIgnoreFirstTrigger = _g[1];
 
-  var _g = React.useState(0),
-      height = _g[0],
-      setHeight = _g[1]; // @ts-ignore
+  var _h = React.useState(0),
+      height = _h[0],
+      setHeight = _h[1]; // @ts-ignore
 
 
-  var _h = React.useState(ctx.activeKey.indexOf(+id) === -1),
-      collapsed = _h[0],
-      setCollapsed = _h[1];
+  var _j = React.useState(ctx.activeKey.indexOf(+id) === -1),
+      collapsed = _j[0],
+      setCollapsed = _j[1];
 
+  var specifyTrigger = triggerId ? document.querySelector("#" + triggerId) : null;
   var cls = classNames_1.genClassName('collapse_wrapper') + ' ' + className;
 
   var trigger = function trigger(e) {
-    var specifyTrigger = triggerId ? document.querySelector("#" + triggerId) : null; // @ts-ignore
-
+    // @ts-ignore
     var noContainsAndNotEqual = specifyTrigger ? specifyTrigger !== e.target && !specifyTrigger.contains(e.target) : false; // @ts-ignore
 
     var idx = ctx.activeKey.indexOf(+id);
@@ -91,7 +93,7 @@ var CollapsePanel = function CollapsePanel(props) {
 
   React.useEffect(function () {
     // @ts-ignore
-    if (!collapsed) {
+    if (!collapsed && async) {
       setHeight(ref.current.clientHeight);
     }
   }, [children]);
@@ -110,11 +112,13 @@ var CollapsePanel = function CollapsePanel(props) {
     }, React.createElement("div", {
       className: classNames_1.genClassName('collase_header') + (disabled ? ' disabled' : ''),
       onClick: function onClick(e) {
-        if (ignoreFirstTrigger) {
+        console.log(ignoreFirstTrigger, async, collapsed);
+
+        if (ignoreFirstTrigger && async) {
           setIgnoreFirstTrigger(false);
         }
 
-        if (ignoreFirstTrigger && collapsed) {
+        if (ignoreFirstTrigger && async && collapsed) {
           return;
         }
 

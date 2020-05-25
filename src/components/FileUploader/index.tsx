@@ -27,10 +27,10 @@ const FileUploader = (props: FileUploaderProps) => {
   const fileUploaderId = Math.floor(Math.random() * 1000000);
   const inputId = Math.floor(Math.random() * 1000000);
 
-  const doChange = (val: any) => {
+  const doChange = (val: any, naive = false) => {
     if (val) {
       setUploaded(true);
-      setFile(val.nativeEvent.target.files[0]);
+      setFile(naive ? val : val.nativeEvent.target.files[0]);
     } else {
       setUploaded(false);
     }
@@ -45,7 +45,8 @@ const FileUploader = (props: FileUploaderProps) => {
         onFileChoose,
         onFileUploaded,
         fileNameJudgeFunc,
-        fileTypeJudgeFunc
+        fileTypeJudgeFunc,
+        doChange
       }
     );
   }, []);

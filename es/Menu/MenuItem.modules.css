@@ -6,16 +6,14 @@
   height: 50px;
   line-height: 50px;
   cursor: pointer; }
-  .sidus-menuitem.active, .sidus-menuitem:hover {
+  .sidus-menuitem.active::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 2px;
+    height: 100%;
+    background-color: #46aa5f; }
+  .sidus-menuitem:hover {
     background-color: #fafafa;
     color: #666; }
-    .sidus-menuitem.active::before, .sidus-menuitem:hover::before {
-      position: absolute;
-      left: 0;
-      top: 0;
-      content: "";
-      width: 2px;
-      height: 100%;
-      background-color: #46aa5f; }
-  .sidus-menuitem:hover::before {
-    display: none; }

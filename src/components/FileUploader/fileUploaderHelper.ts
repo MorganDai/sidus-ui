@@ -5,6 +5,7 @@ interface CallbackProps {
   onFileUploaded?: Function;
   fileNameJudgeFunc?: Function;
   fileTypeJudgeFunc?: Function;
+  doChange?: Function;
 }
 
 function FileUploaderHelper(boxId: string, fileInputId: string, callback: CallbackProps) {
@@ -13,7 +14,8 @@ function FileUploaderHelper(boxId: string, fileInputId: string, callback: Callba
       onFileChoose = () => {},
       onFileUploaded = () => {},
       fileNameJudgeFunc = () => {},
-      fileTypeJudgeFunc = () => {}
+      fileTypeJudgeFunc = () => {},
+      doChange = () => {}
     } = callback;
     const box = document.getElementById(`${boxId}`);
     const fileInput = document.getElementById(fileInputId);
@@ -36,11 +38,11 @@ function FileUploaderHelper(boxId: string, fileInputId: string, callback: Callba
     // @ts-ignore
     box.addEventListener('click', triggerFile);
 
-    const changeCallback = () => {
+    const changeCallback = (files) =>  {
       // @ts-ignore
-      onFileChoose && onFileChoose(fileInput.files[0]);
+      onFileChoose && onFileChoose(fileInput.files[0] || files);
       // @ts-ignore
-      doResponse(fileInput.files[0]);
+      doResponse(fileInput.files[0] || files);
     }
 
     // @ts-ignore
@@ -48,6 +50,8 @@ function FileUploaderHelper(boxId: string, fileInputId: string, callback: Callba
 
     // 拖拽文件
     if (typeof Worker !== 'undefined') {
+      console.log('-------support-------');
+      
       // @ts-ignore
       box.addEventListener('dragover', preventDefault);
 
@@ -58,8 +62,9 @@ function FileUploaderHelper(boxId: string, fileInputId: string, callback: Callba
           preventDefault(e);
           const dt = e.dataTransfer;
           // @ts-ignore
-          const files = dt.files;
-          doResponse(files[0]);
+          doChange(dt.files[0], true);
+          // @ts-ignore
+          changeCallback(dt.files[0]);
         },
         false
       );

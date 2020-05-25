@@ -23,13 +23,18 @@ var Avatar = function Avatar(props) {
       type = _d === void 0 ? 'circle' : _d,
       _e = props.size,
       size = _e === void 0 ? 'middle' : _e,
+      _f = props.stopPropagation,
+      stopPropagation = _f === void 0 ? true : _f,
       onHover = props.onHover,
       onClick = props.onClick;
   var wrapperCls = classNames_1.genClassName('avatar_wrapper ' + cls + ' ' + (url ? ' fz-0 ' : ''));
   wrapperCls += type === 'circle' ? 'bdr-percent-half' : 'bdr-px-6';
 
   var handleClick = function handleClick(e) {
-    e.stopPropagation();
+    if (stopPropagation) {
+      e.stopPropagation();
+    }
+
     e.nativeEvent.stopImmediatePropagation();
     onClick ? onClick(e) : tools_1.doNothing();
   };

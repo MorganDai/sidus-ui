@@ -11,11 +11,7 @@
             line-height: 50px;
             cursor: pointer;
 
-            &.active,
-            &:hover {
-                background-color: #fafafa;
-                color: $COLOR_666;
-
+            &.active{
                 &::before {
                     position: absolute;
                     left: 0;
@@ -28,9 +24,8 @@
             }
 
             &:hover {
-                &::before {
-                    display: none;
-                }
+                background-color: #fafafa;
+                color: $COLOR_666;
             }
         }
     }

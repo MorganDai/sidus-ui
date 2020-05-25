@@ -9,6 +9,7 @@ interface CollapsePanelProps {
   disabled?: boolean;
   className?: string;
   activeCls?: string;
+  async?: string;
   style?: React.CSSProperties;
   id?: string;
   extra?: React.ReactNode;
@@ -21,6 +22,7 @@ const CollapsePanel = (props: CollapsePanelProps) => {
     id = '',
     header,
     disabled = false,
+    async = false,
     className = '',
     activeCls = '',
     triggerId = '',
@@ -33,10 +35,11 @@ const CollapsePanel = (props: CollapsePanelProps) => {
   const [height, setHeight] = React.useState(0);
   // @ts-ignore
   const [collapsed, setCollapsed] = React.useState( ctx.activeKey.indexOf(+id) === -1 );
+  const specifyTrigger = triggerId ? document.querySelector(`#${triggerId}`) : null;
+  
   const cls = genClassName('collapse_wrapper') + ' ' + className;
   
   const trigger = (e: React.MouseEvent<HTMLDivElement>) => {
-    const specifyTrigger = triggerId ? document.querySelector(`#${triggerId}`) : null;
     // @ts-ignore
     const noContainsAndNotEqual = specifyTrigger ? specifyTrigger !== e.target && !specifyTrigger.contains(e.target)  : false;
     // @ts-ignore
@@ -44,9 +47,10 @@ const CollapsePanel = (props: CollapsePanelProps) => {
     let nextRes = false;
 
     if (disabled || (triggerId && noContainsAndNotEqual)) { return; }
-
+    
     // @ts-ignore
     if (idx === -1) { ctx.setActiveKey([...ctx.activeKey, +id]); }
+
     if (idx !== -1) {
       // @ts-ignore
       const temp = [ ...ctx.activeKey ];
@@ -64,7 +68,7 @@ const CollapsePanel = (props: CollapsePanelProps) => {
 
   React.useEffect(() => {
     // @ts-ignore
-    if (!collapsed) { setHeight(ref.current.clientHeight); }
+    if (!collapsed && async) { setHeight(ref.current.clientHeight); }
   }, [children]);
 
   React.useEffect(() => {
@@ -81,11 +85,13 @@ const CollapsePanel = (props: CollapsePanelProps) => {
           <div
             className={genClassName('collase_header') + (disabled ? ' disabled' : '')}
             onClick={ e => {
-              if (ignoreFirstTrigger) {
+              console.log(ignoreFirstTrigger, async, collapsed);
+              
+              if (ignoreFirstTrigger && async) {
                 setIgnoreFirstTrigger(false); 
               }
 
-              if (ignoreFirstTrigger && collapsed) { 
+              if (ignoreFirstTrigger && async && collapsed) { 
                 return;
               }
               trigger(e); 

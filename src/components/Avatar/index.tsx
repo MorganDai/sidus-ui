@@ -10,6 +10,7 @@ interface AvatarProps {
   type?: string; // round circle
   size?: string;
   cls?: string;
+  stopPropagation?: boolean;
   onHover?: Function;
   onClick?: Function;
 }
@@ -21,6 +22,7 @@ const Avatar = (props: AvatarProps) => {
     cls = '',
     type = 'circle',
     size = 'middle',
+    stopPropagation = true,
     onHover,
     onClick
   } = props;
@@ -29,7 +31,9 @@ const Avatar = (props: AvatarProps) => {
   wrapperCls += type === 'circle' ? 'bdr-percent-half' : 'bdr-px-6';
 
   const handleClick = (e: any) => {
-    e.stopPropagation();
+    if (stopPropagation) {
+      e.stopPropagation();
+    }
     e.nativeEvent.stopImmediatePropagation();
     onClick ? onClick(e) : doNothing();
   };

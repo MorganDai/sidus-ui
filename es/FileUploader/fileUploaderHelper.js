@@ -15,7 +15,9 @@ function FileUploaderHelper(boxId, fileInputId, callback) {
         _c = callback.fileNameJudgeFunc,
         fileNameJudgeFunc = _c === void 0 ? function () {} : _c,
         _d = callback.fileTypeJudgeFunc,
-        fileTypeJudgeFunc = _d === void 0 ? function () {} : _d;
+        fileTypeJudgeFunc = _d === void 0 ? function () {} : _d,
+        _e = callback.doChange,
+        doChange = _e === void 0 ? function () {} : _e;
     var box = document.getElementById("" + boxId);
     var fileInput = document.getElementById(fileInputId);
 
@@ -38,26 +40,28 @@ function FileUploaderHelper(boxId, fileInputId, callback) {
 
     box.addEventListener('click', triggerFile);
 
-    var changeCallback = function changeCallback() {
+    var changeCallback = function changeCallback(files) {
       // @ts-ignore
-      onFileChoose && onFileChoose(fileInput.files[0]); // @ts-ignore
+      onFileChoose && onFileChoose(fileInput.files[0] || files); // @ts-ignore
 
-      doResponse(fileInput.files[0]);
+      doResponse(fileInput.files[0] || files);
     }; // @ts-ignore
 
 
     fileInput.addEventListener('change', changeCallback); // 拖拽文件
 
     if (typeof Worker !== 'undefined') {
-      // @ts-ignore
+      console.log('-------support-------'); // @ts-ignore
+
       box.addEventListener('dragover', tools_1.preventDefault); // @ts-ignore
 
       box.addEventListener('drop', function (e) {
         tools_1.preventDefault(e);
         var dt = e.dataTransfer; // @ts-ignore
 
-        var files = dt.files;
-        doResponse(files[0]);
+        doChange(dt.files[0], true); // @ts-ignore
+
+        changeCallback(dt.files[0]);
       }, false);
     } else {
       console.log('浏览器不支持HTML5');
