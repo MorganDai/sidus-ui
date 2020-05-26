@@ -164,44 +164,46 @@ var VERIFY_REQUEST;
 var Input = function Input(props) {
   var _a = props.align,
       align = _a === void 0 ? 'vertical' : _a,
-      _b = props.cls,
-      cls = _b === void 0 ? '' : _b,
-      _c = props.disabled,
-      disabled = _c === void 0 ? false : _c,
-      _d = props.disabledGetCode,
-      disabledGetCode = _d === void 0 ? true : _d,
-      _e = props.label,
-      label = _e === void 0 ? '' : _e,
-      _f = props.type,
-      type = _f === void 0 ? 'text' : _f,
-      _g = props.required,
-      required = _g === void 0 ? false : _g,
-      _h = props.value,
-      value = _h === void 0 ? '' : _h,
-      _j = props.verifyCodeInterval,
-      verifyCodeInterval = _j === void 0 ? 60 : _j,
-      _k = props.change,
-      change = _k === void 0 ? function () {} : _k,
-      _l = props.getVeriCodeCallback,
-      getVeriCodeCallback = _l === void 0 ? function () {} : _l,
-      _m = props.sendVeriCodeFinished,
-      sendVeriCodeFinished = _m === void 0 ? function () {} : _m;
+      _b = props.autocomplete,
+      autocomplete = _b === void 0 ? false : _b,
+      _c = props.cls,
+      cls = _c === void 0 ? '' : _c,
+      _d = props.disabled,
+      disabled = _d === void 0 ? false : _d,
+      _e = props.disabledGetCode,
+      disabledGetCode = _e === void 0 ? true : _e,
+      _f = props.label,
+      label = _f === void 0 ? '' : _f,
+      _g = props.type,
+      type = _g === void 0 ? 'text' : _g,
+      _h = props.required,
+      required = _h === void 0 ? false : _h,
+      _j = props.value,
+      value = _j === void 0 ? '' : _j,
+      _k = props.verifyCodeInterval,
+      verifyCodeInterval = _k === void 0 ? 60 : _k,
+      _l = props.change,
+      change = _l === void 0 ? function () {} : _l,
+      _m = props.getVeriCodeCallback,
+      getVeriCodeCallback = _m === void 0 ? function () {} : _m,
+      _o = props.sendVeriCodeFinished,
+      sendVeriCodeFinished = _o === void 0 ? function () {} : _o;
 
-  var _o = React.useState(value),
-      inputs = _o[0],
-      setInputs = _o[1];
+  var _p = React.useState(value),
+      inputs = _p[0],
+      setInputs = _p[1];
 
-  var _p = React.useState(props.animation || false),
-      focused = _p[0],
-      setFocused = _p[1];
+  var _q = React.useState(props.animation || false),
+      focused = _q[0],
+      setFocused = _q[1];
 
-  var _q = React.useState(VERIFY_REQUEST.NONE),
-      status = _q[0],
-      setStatus = _q[1];
+  var _r = React.useState(VERIFY_REQUEST.NONE),
+      status = _r[0],
+      setStatus = _r[1];
 
-  var _r = React.useState(verifyCodeInterval),
-      intval = _r[0],
-      setIntval = _r[1];
+  var _s = React.useState(verifyCodeInterval),
+      intval = _s[0],
+      setIntval = _s[1];
 
   var timer = React.useRef(undefined); // 改变outline的状态
 
@@ -302,6 +304,7 @@ var Input = function Input(props) {
     type: props.type,
     className: props.type === 'search' ? 'search' : '',
     placeholder: props.placeholder,
+    autoComplete: autocomplete ? 'on' : 'off',
     value: inputs,
     disabled: disabled,
     onFocus: changeStatus,

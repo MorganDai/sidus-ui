@@ -10,15 +10,17 @@ interface options {
 interface SelectProps {
   defaults?: Array<number>;
   disabled?: boolean;
+  emptyNode?: React.ReactNode;
   data: Array<options>;
   multi?: boolean;
   onSelected?: Function;
 }
 
 const Select = (props: SelectProps) => {
-  const { multi = false, data = [], disabled = false, onSelected, defaults = [] } = {
-    ...props
-  };
+  const {
+    multi = false, data = [], disabled = false,
+    emptyNode = '', onSelected, defaults = []
+  } = props;
 
   const [activeIndexs, setActiveIndexs] = React.useState([...defaults]);
   const [collapse, setCollapse] = React.useState(true);
@@ -53,9 +55,7 @@ const Select = (props: SelectProps) => {
   };
 
   const changeCollapse = React.useCallback(() => {
-    if (disabled) {
-      return;
-    }
+    if (disabled) return;
 
     if (!collapse) {
       setCollapse(!collapse);
@@ -123,7 +123,11 @@ const Select = (props: SelectProps) => {
         </div>
 
         <div className={`sidus-select_list ${collapse ? '' : 'no-collapse'}`}>
-          <ul>{list}</ul>
+          {
+            list.length
+              ?  <ul>{list}</ul>
+              : emptyNode
+          }
         </div>
       </div>
     </div>

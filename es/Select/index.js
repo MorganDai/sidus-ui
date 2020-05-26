@@ -1,21 +1,5 @@
 "use strict";
 
-var __assign = this && this.__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-
 var __spreadArrays = this && this.__spreadArrays || function () {
   for (var s = 0, i = 0, il = arguments.length; i < il; i++) {
     s += arguments[i].length;
@@ -41,15 +25,16 @@ var index_1 = require("../Icon/index");
 require("./index.css");
 
 var Select = function Select(props) {
-  var _a = __assign({}, props),
-      _b = _a.multi,
-      multi = _b === void 0 ? false : _b,
-      _c = _a.data,
-      data = _c === void 0 ? [] : _c,
-      _d = _a.disabled,
-      disabled = _d === void 0 ? false : _d,
-      onSelected = _a.onSelected,
-      _e = _a.defaults,
+  var _a = props.multi,
+      multi = _a === void 0 ? false : _a,
+      _b = props.data,
+      data = _b === void 0 ? [] : _b,
+      _c = props.disabled,
+      disabled = _c === void 0 ? false : _c,
+      _d = props.emptyNode,
+      emptyNode = _d === void 0 ? '' : _d,
+      onSelected = props.onSelected,
+      _e = props.defaults,
       defaults = _e === void 0 ? [] : _e;
 
   var _f = React.useState(__spreadArrays(defaults)),
@@ -100,9 +85,7 @@ var Select = function Select(props) {
   };
 
   var changeCollapse = React.useCallback(function () {
-    if (disabled) {
-      return;
-    }
+    if (disabled) return;
 
     if (!collapse) {
       setCollapse(!collapse);
@@ -162,7 +145,7 @@ var Select = function Select(props) {
     cls: "pos-r z-1"
   })), React.createElement("div", {
     className: "sidus-select_list " + (collapse ? '' : 'no-collapse')
-  }, React.createElement("ul", null, list))));
+  }, list.length ? React.createElement("ul", null, list) : emptyNode)));
 };
 
 exports["default"] = Select;

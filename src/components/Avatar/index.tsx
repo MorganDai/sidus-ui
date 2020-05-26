@@ -42,7 +42,7 @@ const Avatar = (props: AvatarProps) => {
     <div className={wrapperCls + ' ' + size}>
       <div
         className={genClassName('avatar')}
-        style={{ backgroundImage: `url(${url})` }}
+        style={{ backgroundImage: url ? `url(${url})` : 'none' }}
         onMouseOver={e => (onHover ? onHover(e) : doNothing())}
         onClick={handleClick}
       >

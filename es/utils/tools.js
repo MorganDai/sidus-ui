@@ -14,6 +14,12 @@ function toNumArray(target) {
     return Array.isArray(target) ? __spreadArrays(target.map(function (item) { return +item; })) : [+target];
 }
 exports.toNumArray = toNumArray;
+function genUniqueId(prefix) {
+    if (prefix === void 0) { prefix = 'sidus'; }
+    var timestamp = Date.now();
+    return "" + prefix + (timestamp++).toString(36);
+}
+exports.genUniqueId = genUniqueId;
 function preventDefault(e) {
     e.preventDefault();
 }

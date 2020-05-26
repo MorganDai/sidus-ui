@@ -7,6 +7,7 @@ interface InputProps {
   align?: string;
   animation?: boolean;
   animationCls?: string | Array<string>;
+  autocomplete?: boolean;
   change?: Function;
   cls?: string | Array<string>;
   disabled?: boolean;
@@ -30,6 +31,7 @@ enum VERIFY_REQUEST {
 const Input = (props: InputProps) => {
   const {
     align = 'vertical',
+    autocomplete = false,
     cls = '',
     disabled = false,
     disabledGetCode = true,
@@ -129,6 +131,7 @@ const Input = (props: InputProps) => {
           type={props.type}
           className={props.type === 'search' ? 'search' : ''}
           placeholder={props.placeholder}
+          autoComplete={autocomplete ? 'on' : 'off'}
           value={inputs}
           disabled={disabled}
           onFocus={changeStatus}
