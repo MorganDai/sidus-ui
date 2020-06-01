@@ -16,6 +16,7 @@ interface SubMenuProps {
   triggerRef?: any;
   id?: string;
   title?: string;
+  cls?: string;
   underSub?: boolean;
   noIcon?: boolean;
   onTitleClick?: Function;
@@ -24,6 +25,7 @@ interface SubMenuProps {
 const SubMenu = (props: SubMenuProps) => {
   const context = React.useContext(MenuContext);
   const {
+    cls = '',
     disabled = false,
     disableCollapse = false,
     collapsed = true,

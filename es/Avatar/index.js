@@ -44,7 +44,8 @@ var Avatar = function Avatar(props) {
   }, React.createElement("div", {
     className: classNames_1.genClassName('avatar'),
     style: {
-      backgroundImage: url ? "url(" + url + ")" : 'none'
+      backgroundImage: url ? "url(" + url + ")" : 'none',
+      backgroundColor: url ? '#fff' : 'transparent'
     },
     onMouseOver: function onMouseOver(e) {
       return onHover ? onHover(e) : tools_1.doNothing();

@@ -5,3 +5,9 @@
 .z-1 {
     z-index: 1;
 }
+
+.one-line {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
