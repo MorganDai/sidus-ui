@@ -60,7 +60,7 @@
     "minimist": "^1.2.5",
     "node-sass": "^4.14.0",
     "object-assign": "^4.1.1",
-    "postcss": "^7.0.27",
+    "postcss": "^7.0.36",
     "react-docgen-typescript-loader": "^3.7.2",
     "rimraf": "^3.0.2",
     "sass-loader": "^8.0.2",
